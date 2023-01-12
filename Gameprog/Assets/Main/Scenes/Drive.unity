@@ -393,6 +393,7 @@ TrailRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1073,6 +1074,7 @@ MonoBehaviour:
   v: 0.007
   Camera: {fileID: 519420028}
   t: 0
+  circ_finish: 15
 --- !u!4 &1392602003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 870892921361733035, guid: d01858358366c224e9732a57dcdccf18, type: 3}
@@ -1401,9 +1403,10 @@ MonoBehaviour:
   Car: {fileID: 1852767756}
   Line: {fileID: 1408700861}
   Dat: {fileID: 1109873394}
-  v: 0.02
+  v: 0.03
   Camera: {fileID: 0}
   t: 0
+  circ_finish: 15
 --- !u!1 &1883327105 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 870892920540951522, guid: d01858358366c224e9732a57dcdccf18, type: 3}

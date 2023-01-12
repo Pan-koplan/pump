@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class Timer : MonoBehaviour 
 {
     int sec = 0;
     int min = 0;
     Text timerText;
+    public GameObject timer;
+    public static bool flow = true;
 
 
     void Awake()
     {
-        timerText = GameObject.Find("timer").GetComponent<Text>();
-        Debug.Log(GameObject.Find("timer"));
+        timerText = timer.GetComponent<Text>();
         StartCoroutine(TimeFlow());
     }
 
     IEnumerator TimeFlow()
     {
-        while(true)
+        while(flow)
         {
             if(sec == 59)
             {
