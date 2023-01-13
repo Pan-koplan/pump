@@ -23,17 +23,21 @@ public class Move_car : MonoBehaviour
 
     public GameObject Camera;
     public GameObject Fin;
-    public Image load;
     float dirload = 1;
+
+    public Slider stopom;
+    public GameObject nit;
+    private bool nit_active;
+    float v_shared;
 
 
     public float t = 0;
     int circ = 0;
     public int circ_finish = 15;
 
-    void Start()
+    private void Start()
     {
-        load.fillAmount = 0;
+        v_shared = v;
     }
     void FixedUpdate()
     {
@@ -42,6 +46,7 @@ public class Move_car : MonoBehaviour
         {
             Car.position = Bezier.GetPoint(P0.position, P1.position, P2.position, P3.position, t);
             Car.rotation = Quaternion.LookRotation(Bezier.GetFirstDerivative(P0.position, P1.position, P2.position, P3.position, t));
+           
         }
         else
         {
@@ -71,7 +76,26 @@ public class Move_car : MonoBehaviour
         }
 
         // stopometr
-        load.fillAmount += v * dirload;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (t >= 0.3f && t <= 0.7f)
+            {
+                if(nit_active == false)
+                {
+                    
+                    nit.GetComponent<TrailRenderer>().time = 0.5f;
+                    nit_active = true;
+                }
+                /*v = Mathf.Lerp(v*2, v_shared, Time.deltaTime);*/
+                
+            }
+        }
+        stopom.value += v * dirload;
+        //nit-stop
+        if(t<=0.3f || t >= 0.7f)
+        {
+            nit.GetComponent<TrailRenderer>().time = 0f;
+        }
 
 
         //cameramove
