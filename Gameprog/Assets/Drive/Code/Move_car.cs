@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.UI;
 
 [ExecuteAlways]
@@ -23,6 +24,8 @@ public class Move_car : MonoBehaviour
     private bool nit_active;
     float v_shared;
     bool qw;
+    private Quaternion start;
+    private Quaternion end;
 
 
     public float t = 0;
@@ -32,6 +35,8 @@ public class Move_car : MonoBehaviour
     private void Start()
     {
         v_shared = v;
+        start = Car.rotation;
+        end = Quaternion.Euler(120f, 0f,0f);
     }
     void FixedUpdate()
     {
@@ -45,7 +50,7 @@ public class Move_car : MonoBehaviour
             }
             else
             {
-                Car.rotation = Quaternion.Euler(Mathf.Lerp(Car.rotation.x, 5f, 1f), Car.rotation.y, Car.rotation.z);
+                Car.rotation = Quaternion.LerpUnclamped(start, end, Time.time);
             }
            
 

@@ -7,6 +7,9 @@ TagManager:
   - Dialog_table
   - Edu_bar
   - Diahold
+  - PlatformWall
+  - Platform
+  - Pause
   layers:
   - Default
   - TransparentFX

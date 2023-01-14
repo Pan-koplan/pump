@@ -122,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3529786182143556876}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: unpause
+      - m_Target: {fileID: 1558863045952921888}
+        m_TargetAssemblyTypeName: Pause_fix, Assembly-CSharp
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 2119417730740338349}
   - component: {fileID: 2593767142767406817}
   - component: {fileID: 466979336073627919}
-  - component: {fileID: 3529786182143556876}
+  - component: {fileID: 1558863045952921888}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3529786182143556876
+--- !u!114 &1558863045952921888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,10 +381,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3442053528666545246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6335fe00ec212408419603a6a01579, type: 3}
+  m_Script: {fileID: 11500000, guid: 696f97bbe20e57b49ac91f20b34161d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sc_exit: 2_floor
+  sc_exit: 
   pause_menu: {fileID: 0}
 --- !u!1 &4397304099013506924
 GameObject:
@@ -643,9 +643,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3529786182143556876}
-        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
-        m_MethodName: Exit
+      - m_Target: {fileID: 1558863045952921888}
+        m_TargetAssemblyTypeName: Pause_fix, Assembly-CSharp
+        m_MethodName: unpause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
