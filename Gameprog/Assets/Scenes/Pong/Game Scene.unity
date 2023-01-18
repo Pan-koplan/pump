@@ -1179,9 +1179,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: fuck
       objectReference: {fileID: 0}
+    - target: {fileID: 6382590348193060613, guid: 8251de1e990db0943a2e1ec1be989d61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7130628426644269691, guid: 8251de1e990db0943a2e1ec1be989d61, type: 3}
       propertyPath: sc_exit
       value: podval
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130628426644269691, guid: 8251de1e990db0943a2e1ec1be989d61, type: 3}
+      propertyPath: sc_restart
+      value: Game scene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8251de1e990db0943a2e1ec1be989d61, type: 3}

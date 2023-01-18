@@ -13,7 +13,6 @@ public class NPC : MonoBehaviour
     [SerializeField] public Color textColor;
 
     [SerializeField] public float delay;
-    [SerializeField] public float delay2;
 
     [SerializeField] public AudioClip sound;
     [Header("Textholders")]
@@ -53,12 +52,12 @@ public class NPC : MonoBehaviour
                 table = GameObject.FindWithTag("Dialog_table");
                 txt = GameObject.FindWithTag("Diahold");
                 DiaHolder = txt.GetComponent<Text>();
-                StartCoroutine(WriteText(input1, input2, input3, input4, input5, DiaHolder, textColor, delay, delay2, sound));
+                StartCoroutine(WriteText(input1, input2, input3, input4, input5, DiaHolder, textColor, delay, sound));
             }
 
         }
     }
-    protected IEnumerator WriteText(string input1, string input2, string input3, string input4, string input5, Text DiaHolder, Color textColor, float delay, float delay2, AudioClip sound)
+    protected IEnumerator WriteText(string input1, string input2, string input3, string input4, string input5, Text DiaHolder, Color textColor, float delay, AudioClip sound)
     {
         string[] input = { input1, input2, input3, input4, input5 };
 

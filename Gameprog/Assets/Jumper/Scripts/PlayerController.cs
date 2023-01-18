@@ -18,6 +18,13 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
+    private void Start()
+    {
+    }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space)) Jump();
+    }
 
     public void Jump()
     {

@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
                                           // Main сцену тебе нужно вписать в ()
         {
             SceneManager.LoadScene(5);
-            win_Pong = true;
 
         }
     }

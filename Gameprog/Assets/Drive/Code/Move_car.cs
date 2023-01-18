@@ -1,5 +1,6 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [ExecuteAlways]
@@ -24,8 +25,9 @@ public class Move_car : MonoBehaviour
     private bool nit_active;
     float v_shared;
     bool qw;
-    private Quaternion start;
-    private Quaternion end;
+    Animator Ani;
+    public Animator Cube;
+    public GameObject pause_menu;
 
 
     public float t = 0;
@@ -35,8 +37,7 @@ public class Move_car : MonoBehaviour
     private void Start()
     {
         v_shared = v;
-        start = Car.rotation;
-        end = Quaternion.Euler(120f, 0f,0f);
+        Ani = GetComponent<Animator>();
     }
     void FixedUpdate()
     {
@@ -50,9 +51,19 @@ public class Move_car : MonoBehaviour
             }
             else
             {
-                Car.rotation = Quaternion.LerpUnclamped(start, end, Time.time);
+                GetComponent<Animator>().enabled = true;
+                if (circ % 2 == 0) Ani.Play("Rotation_left");
+                else Ani.Play("Rotation_right");
+                v = Mathf.Lerp(v, 0, 0.03f);
+                Car.position = Bezier.GetPoint(P0.position, P1.position, P2.position, P3.position, t);
+                if(v <= 0.0001f)
+                {
+                    pause_menu.SetActive(true);
+                    Time.timeScale = 0;
+                }
             }
-           
+            
+
 
         }
         else
@@ -66,6 +77,7 @@ public class Move_car : MonoBehaviour
         // движение формирование дороги и фишина
         if(t >= 1.0f)
         {
+            if(circ % 2 == 0)
             circ++;
             t = 0.0f;
             Line.transform.position = Car.transform.position;
@@ -80,30 +92,33 @@ public class Move_car : MonoBehaviour
         // stopometr
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (t >= 0.4f && t <= 0.6f)
+            if (t >= 0.4f && t <= 0.5f)
             {
                 if(nit_active == false)
                 {
                     nit.GetComponent<TrailRenderer>().time = 0.5f;
                     nit_active = true;
                 }
-                v = Mathf.Lerp(v*1.3f, v, 0.5f);
+                v = Mathf.Lerp(v*1.4f, v, 0.2f);
+                Debug.Log("a");
                 
             }
             else
             {
                 qw = true;
                 v = Mathf.Lerp(v, 0, 0.1f);
+                Debug.Log("b");
             }
         }
         stopom.value += v * dirload;
 
 
         //nit-stop
-        if(t<=0.4f || t >= 0.6f)
+        if(t <= 0.4f || t >= 0.6f)
         {
             nit.GetComponent<TrailRenderer>().time = Mathf.Lerp(nit.GetComponent<TrailRenderer>().time,0,0.2f);
             nit_active = false;
+
         }
 
 
