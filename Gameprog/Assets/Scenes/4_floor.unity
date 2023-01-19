@@ -2474,6 +2474,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2357798852101843635, guid: 2b5d720fad4e28c4fb0cb49bf51330b9, type: 3}
+      propertyPath: sc
+      value: Build
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357798852101843635, guid: 2b5d720fad4e28c4fb0cb49bf51330b9, type: 3}
       propertyPath: input1
       value: Myau
       objectReference: {fileID: 0}

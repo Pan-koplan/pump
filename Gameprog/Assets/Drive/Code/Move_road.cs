@@ -49,8 +49,7 @@ public class Move_road: MonoBehaviour
             dirload = dirload * -1;
             if (circ == circ_finish)
             {
-                Instantiate(Fin);
-                Fin.transform.position = Car.position;
+                
                 finish = true;
                 v = 0;
             }

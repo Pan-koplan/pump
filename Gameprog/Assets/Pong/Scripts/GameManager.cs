@@ -46,13 +46,13 @@ public class GameManager : MonoBehaviour
     {
         if (_computerScore == scoreToReach)
         {
-            SceneManager.LoadScene(10);
+            SceneManager.LoadScene(9);
         }
 
         if (_playerScore == scoreToReach) //Если очки игрока равны 3, то есть игрок выигрывает, загружается main сцена
                                           // Main сцену тебе нужно вписать в ()
         {
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(4);
 
         }
     }

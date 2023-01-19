@@ -24,7 +24,7 @@ public class Move_car : MonoBehaviour
     public GameObject nit;
     private bool nit_active;
     float v_shared;
-    bool qw;
+    bool qw = false;
     Animator Ani;
     public Animator Cube;
     public GameObject pause_menu;
@@ -33,6 +33,8 @@ public class Move_car : MonoBehaviour
     public float t = 0;
     public int circ = 0;
     public int circ_finish = 15;
+    public GameObject winn;
+    public GameObject los;
 
     private void Start()
     {
@@ -56,11 +58,7 @@ public class Move_car : MonoBehaviour
                 else Ani.Play("Rotation_right");
                 v = Mathf.Lerp(v, 0, 0.03f);
                 Car.position = Bezier.GetPoint(P0.position, P1.position, P2.position, P3.position, t);
-                if(v <= 0.0001f)
-                {
-                    pause_menu.SetActive(true);
-                    Time.timeScale = 0;
-                }
+                
             }
             
 
@@ -69,7 +67,7 @@ public class Move_car : MonoBehaviour
         else
         {
             Car.position = Bezier.GetPoint(P0.position, P1.position, P2.position, P3.position, t);
-            v = Mathf.Lerp(v, 0, 0.05f);
+            v = Mathf.Lerp(v, 0, 0.1f);
         }
         t += v;
         
@@ -77,7 +75,6 @@ public class Move_car : MonoBehaviour
         // движение формирование дороги и фишина
         if(t >= 1.0f)
         {
-            if(circ % 2 == 0)
             circ++;
             t = 0.0f;
             Line.transform.position = Car.transform.position;
@@ -92,7 +89,7 @@ public class Move_car : MonoBehaviour
         // stopometr
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (t >= 0.4f && t <= 0.5f)
+            if (stopom.value >= 0.47f && stopom.value <= 0.53f)
             {
                 if(nit_active == false)
                 {
@@ -129,8 +126,24 @@ public class Move_car : MonoBehaviour
 
         }
 
+        //Gameover
+        if (v <= 0.001)
+        {
+            if(circ == circ_finish && Timer.winn)
+            {
+                winn.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                los.SetActive(true);
+                Time.timeScale = 0;
+            }
+            
+        }
 
-       
+
+
 
     }
 

@@ -11,6 +11,9 @@ TagManager:
   - Platform
   - Pause
   - Helper
+  - Wall
+  - Enemy
+  - Winn
   layers:
   - Default
   - TransparentFX

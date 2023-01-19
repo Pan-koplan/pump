@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
 {
     int sec = 0;
     int min = 0;
+    public int lose;
+    static public bool winn = true;
     Text timerText;
     public GameObject timer;
     public static bool flow = true;
@@ -30,6 +32,10 @@ public class Timer : MonoBehaviour
                 sec = -1;
             }
             sec += 1;
+            if(sec >= lose)
+            {
+                winn = false;
+            }
             timerText.text = min.ToString("D2") + " : " + sec.ToString("D2");
             yield return new WaitForSeconds(1);
         }

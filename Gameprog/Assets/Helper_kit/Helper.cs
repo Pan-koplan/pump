@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Helper : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 0;
+    }
     public void Exit()
     {
         Time.timeScale = 1;
