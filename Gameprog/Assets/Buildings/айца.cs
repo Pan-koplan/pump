@@ -8,7 +8,7 @@ public class айца : MonoBehaviour
     int count = 0;
     public int win_count;
     public GameObject Kontr;
-    public GameObject camera;
+    public GameObject Сamera;
     void Start()
     {
 
@@ -28,9 +28,8 @@ public class айца : MonoBehaviour
             if (count < win_count)
             {
                 Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-                camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y + Mathf.Lerp(0, 10, 0.1f), camera.transform.position.z);
+                Сamera.transform.position = new Vector3(Сamera.transform.position.x, Сamera.transform.position.y + Mathf.Lerp(0, 10, 0.1f), Сamera.transform.position.z);
             }
-            else;
 
         }
     }
